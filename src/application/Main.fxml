@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragReleased="#mouseReleased" onMouseEntered="#mouseEntered" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <top>
+      <HBox prefHeight="30.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#onClickStart" text="スタート" />
+            <Button fx:id="stopButton" disable="true" mnemonicParsing="false" onAction="#onClickStop" text="ストップ" />
+            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#onClickReset" text="リセット" />
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#onClickSave" text="保存" />
+            <Button fx:id="openButton" mnemonicParsing="false" onAction="#onClickOpen" text="ファイルを開く" />
+            <CheckBox fx:id="mutexCheckBox" mnemonicParsing="false" selected="true" text="mutex" translateY="5.0" />
+            <Slider fx:id="speedBar" showTickLabels="true" translateX="20.0" translateY="6.0" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <Pane fx:id="display" onDragDropped="#onDragDropped" onDragOver="#onDragOver" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: White;" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <VBox fx:id="partsBox" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox maxHeight="350.0" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" style="-fx-border-color: Black;">
+               <children>
+                  <ToggleButton fx:id="road1" mnemonicParsing="false" onAction="#onClickParts" selected="true" text="道路">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/road1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="parts" />
+                     </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton fx:id="road2" mnemonicParsing="false" onAction="#onClickParts" text="道路" toggleGroup="$parts">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/road2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="road3" mnemonicParsing="false" onAction="#onClickParts" text="道路" toggleGroup="$parts">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/road3.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="road4" mnemonicParsing="false" onAction="#onClickParts" text="道路" toggleGroup="$parts">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/road4.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="road5" mnemonicParsing="false" onAction="#onClickParts" text="道路" toggleGroup="$parts">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/road5.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="road6" mnemonicParsing="false" onAction="#onClickParts" text="道路" toggleGroup="$parts">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/road6.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <VBox prefWidth="100.0" style="-fx-border-color: Black;">
+                     <children>
+                        <ToggleButton fx:id="light" mnemonicParsing="false" onAction="#onClickParts" text="信号" toggleGroup="$parts">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/light.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </ToggleButton>
+                        <HBox prefWidth="200.0">
+                           <children>
+                              <Label text="青時間[s]" translateY="5.0" />
+                              <TextField fx:id="inputBlueTime" prefWidth="46.0" text="1" />
+                           </children>
+                        </HBox>
+                        <HBox prefWidth="200.0">
+                           <children>
+                              <Label text="赤時間[s]" translateY="5.0" />
+                              <TextField fx:id="inputRedTime" prefWidth="46.0" text="1" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefWidth="100.0" style="-fx-border-color: Black;">
+                     <children>
+                        <ToggleButton fx:id="car" mnemonicParsing="false" onAction="#onClickParts" text="車" toggleGroup="$parts">
+                           <graphic>
+                              <Pane prefHeight="20.0" prefWidth="20.0" />
+                           </graphic>
+                        </ToggleButton>
+                        <ColorPicker fx:id="colorPicker" minHeight="26.0" onAction="#selectColor" />
+                        <HBox prefWidth="200.0">
+                           <children>
+                              <Label text="速度" translateY="5.0" />
+                              <TextField fx:id="inputVelocity" prefWidth="70.0" text="1" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox fx:id="property" disable="true" prefWidth="100.0" style="-fx-border-color: Black;">
+               <children>
+                  <VBox fx:id="lightProperty" disable="true" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox prefWidth="200.0">
+                           <children>
+                              <Label text="青時間[s]" translateY="5.0" />
+                              <TextField fx:id="lightPropertyBlue" prefWidth="46.0" text="1" />
+                           </children>
+                        </HBox>
+                        <HBox prefWidth="200.0">
+                           <children>
+                              <Label text="赤時間[s]" translateY="5.0" />
+                              <TextField fx:id="lightPropertyRed" prefWidth="46.0" text="1" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="carProperty" disable="true" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ColorPicker fx:id="carPropertyColor" minHeight="26.0" />
+                        <HBox prefWidth="200.0">
+                           <children>
+                              <Label text="速度" translateY="5.0" />
+                              <TextField fx:id="carPropertyVelocity" prefWidth="70.0" text="1" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#onClickUpdate" text="更新" />
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#onClickDelete" text="削除" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+</BorderPane>
