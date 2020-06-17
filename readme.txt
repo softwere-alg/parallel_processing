@@ -1,10 +1,9 @@
-﻿
- ★実行方法
- Windows10 + 11.0.5-BellSoftにて動作確認済み
- compile.batを実行してから、start.batを実行する
+★実行方法
+Windows10 + 11.0.5-BellSoftにて動作確認済み
+compile.batを実行してから、start.batを実行する
  
  
- ★道路作成
+★道路作成
 
 [道路]
 - 配置したい道路を選択して、マスをクリックすると配置できる
